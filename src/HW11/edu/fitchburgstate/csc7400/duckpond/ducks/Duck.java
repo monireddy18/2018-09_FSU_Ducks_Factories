@@ -1,13 +1,14 @@
 /**
  * Class: Object-Oriented Design and Analysis
  * Professor: Orlando Montalvo
- * Assignment: HW 11
+ * Assignment: HW 12
  * Date: 2018-11-28
  */
 
 package HW11.edu.fitchburgstate.csc7400.duckpond.ducks;
 
 import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.BehaviorHelper;
+import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.BehaviorStrategy;
 import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.fly.FlyingBehavior;
 import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.quack.QuackBehavior;
 import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.swim.SwimBehavior;
@@ -25,24 +26,18 @@ public class Duck implements DuckType {
 	 * 			  a string that identifies the duck type
 	 * @param bitmapFilname
 	 *            the still bitmap file name of the duck
-	 * @param flyingGifFilename
-	 *            the flying behavior
-	 * @param swimmingGifFilename
-	 *            the swimming behavior
-	 * @param quackingBehavior
-	 *            the quacking behavior
+	 * @param behavior
+	 * 				instance of BehaviorStrategy class
 	 */
 
 	public Duck(String duckTypeName,
 			String bitmapFilename, 
-			FlyingBehavior flyingBehavior, 
-			SwimBehavior swimmingBehavior, 
-			QuackBehavior quackingBehavior) {
+			BehaviorStrategy behavior) {
 		this.duckTypeName = duckTypeName;
 		this.still = BehaviorHelper.createBitmap(bitmapFilename);
-		this.flyBehavior = flyingBehavior;
-		this.swimBehavior = swimmingBehavior;
-		this.quackBehavior = quackingBehavior;
+		this.flyBehavior = behavior.getFlyBehavior();
+		this.swimBehavior = behavior.getSwimBehavior();
+		this.quackBehavior = behavior.getQuackBehavior();
 	}
 
 	/**

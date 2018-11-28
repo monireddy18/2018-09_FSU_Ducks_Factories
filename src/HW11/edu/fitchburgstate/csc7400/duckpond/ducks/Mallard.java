@@ -1,16 +1,15 @@
 /**
  * Class: Object-Oriented Design and Analysis
  * Professor: Orlando Montalvo
- * Assignment: HW 11
+ * Assignment: HW 12
  * Date: 2018-11-28
  * Team: Aayusha Agrawal, Mounika Pailla, Tejal Shroff
  */
 
 package HW11.edu.fitchburgstate.csc7400.duckpond.ducks;
 
-import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.fly.FlyBehaviorFactory;
-import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.quack.QuackBehaviorFactory;
-import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.swim.SwimBehaviorFactory;
+import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.BehaviorStrategy;
+import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.quack.QuackType;
 
 /**
  * Mallard duck for pond
@@ -23,8 +22,6 @@ public class Mallard extends Duck {
 	public Mallard() {
 		super("Mallard",
 				"mallard.bmp",
-				FlyBehaviorFactory.createFlyBehavior("mallard flap"),
-				SwimBehaviorFactory.createSwimBehavior("mallard paddle"),
-				QuackBehaviorFactory.createQuackBehavior("quack"));
+				BehaviorStrategy.getBehaviors("mallard flap","mallard paddle", QuackType.QUACK));
 	}
 }
