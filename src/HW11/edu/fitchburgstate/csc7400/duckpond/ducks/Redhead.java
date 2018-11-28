@@ -10,6 +10,7 @@ package HW11.edu.fitchburgstate.csc7400.duckpond.ducks;
 
 import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.fly.FlyBehaviorFactory;
 import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.quack.QuackBehaviorFactory;
+import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.quack.QuackType;
 import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.swim.SwimBehaviorFactory;
 
 /** 
@@ -25,6 +26,6 @@ public class Redhead extends Duck {
 				"redhead.bmp",
 				FlyBehaviorFactory.createFlyBehavior("redhead flap"),
 				SwimBehaviorFactory.createSwimBehavior("redhead paddle"),
-				QuackBehaviorFactory.createQuackBehavior("quack"));
+				QuackBehaviorFactory.createQuackBehavior(QuackType.QUACK));
   }
 }
